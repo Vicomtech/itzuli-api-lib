@@ -1,0 +1,8 @@
+README.md
+setup.py
+itzuli/__init__.py
+itzuli/itzuli.py
+itzuli_pkg_vicomtech.egg-info/PKG-INFO
+itzuli_pkg_vicomtech.egg-info/SOURCES.txt
+itzuli_pkg_vicomtech.egg-info/dependency_links.txt
+itzuli_pkg_vicomtech.egg-info/top_level.txt
