@@ -52,7 +52,7 @@ An exception will be thrown if any error detected.
 
 Install the package
 
-> pip install https://github.com/Vicomtech/itzuli-api-lib/blob/master/python/dist/itzuli-pkg-vicomtech-1.0.0.tar.gz
+> pip install https://github.com/Vicomtech/itzuli-api-lib/blob/master/python/dist/itzuli-pkg-vicomtech-1.0.0.tar.gz?raw=true
 
 Import:
 
