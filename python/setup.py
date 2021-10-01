@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="itzuli-pkg-vicomtech", # Replace with your own username
-    version="1.0.0",
+    version="1.0.1",
     author="Vicomtech.org",
     author_email="info@vicomtech.org",
     description="Itzuli API library",
