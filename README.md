@@ -12,29 +12,25 @@ In this repository, you can find example ready-to-use libraries. For more inform
     Feedback(id, correction string, evaluation int, auth string) (FeedbackResponse, error)
 
 ### Example
-Get the package
-> go get -u github.com/Vicomtech/itzuli-api-lib/go/src/itzuli
+Import module:
+    import("github.com/Vicomtech/itzuli-api-lib/go/itzuli")
 
-Import:
-
-    import("github.com/Vicomtech/itzuli-api-lib/go/src/itzuli")
+Initialize object:
+    itzuli := itzuli.Itzuli{}
+    itzuli.Init("api key")
 
 Send a translation:
-
-    if response, err := itzuli.Translate("kaixo! zer moduz?", "eu", "es", "key"); err != nil {
+    if response, err := itzuli.Translate("kaixo! zer moduz?", "eu", "es"); err != nil {
 	    fmt.Println(response.TranslatedText)
 	}
 
-  Get used quota:
-
-
-    if responseQuota, err := itzuli.GetQuota("apikey"); err != nil {
+Get used quota:
+    if responseQuota, err := itzuli.GetQuota(); err != nil {
 	    fmt.Println(responseQuota.ConsumedQuota)
 	}
 
 Feedback:
-
-    if responseFeedback, err := itzuli.Feedback(translationResponse.FeedbackId, "hau horrela da", 1, "apikey"); err != nil {
+    if responseFeedback, err := itzuli.Feedback(translationResponse.FeedbackId, "hau horrela da", 1); err != nil {
 	    fmt.Println(responseFeedback.Message)
 	}
 
@@ -45,6 +41,7 @@ Feedback:
     getTranslation(text, fromlang, tolang)
     getQuota()
     sendFeedback(id, correction, evaluation)
+    addTag(tag)
 
 An exception will be thrown if any error detected.
 
@@ -52,15 +49,15 @@ An exception will be thrown if any error detected.
 
 Install the package
 
-> pip install https://github.com/Vicomtech/itzuli-api-lib/blob/master/python/dist/itzuli-pkg-vicomtech-1.0.1.tar.gz?raw=true
+> pip install Itzuli
 
 Import:
 
-    import itzuli
+    from Itzuli import Itzuli
 
 Initialize with your api key:
 
-    itzuliapi = itzuli.Itzuli("apikey")
+    itzuliapi = Itzuli.Itzuli("apikey")
 
 Make a translation:
 

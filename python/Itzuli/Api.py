@@ -9,21 +9,24 @@ class Itzuli:
     translate_path = "translation/get"
     feedback_path = "translation/feedback"
     quota_path = "quota/get"
+    tags = []
 
     def __init__(self, authcode):
         self.auth = authcode
 
     # Get translation
     def getTranslation(self, text, fromlang, tolang):
-        reqJson = {'sourcelanguage':fromlang, "targetlanguage":tolang, "text":text}
+        if len(self.tags) > 0:
+            reqJson = {'sourcelanguage':fromlang, "targetlanguage":tolang, "text":text, "tags": self.tags}
+        else:
+            reqJson = {'sourcelanguage':fromlang, "targetlanguage":tolang, "text":text}
+
         r = requests.post(url = self.itzuli_url+self.translate_path, data = json.dumps(reqJson), headers = {'Authorization': 'Bearer '+self.auth })
 
         if (r.status_code == 401):
             raise Exception('Invalid API key or expired')
-            return
         elif (r.status_code != 200):
             raise Exception('Invalid status code: '+str(r.status_code))
-            return
 
         return r.json()
 
@@ -33,10 +36,8 @@ class Itzuli:
 
         if (r.status_code == 401):
             raise Exception('Invalid API key or expired')
-            return
         elif (r.status_code != 200):
             raise Exception('Invalid status code: '+str(r.status_code))
-            return
 
         return r.json()
 
@@ -48,9 +49,11 @@ class Itzuli:
 
         if (r.status_code == 401):
             raise Exception('Invalid API key or expired')
-            return
         elif (r.status_code != 200):
             raise Exception('Invalid status code: '+str(r.status_code))
-            return
 
         return r.json()
+
+    # Add new tag
+    def addTag(self, tag):
+        self.tags.append(tag)
