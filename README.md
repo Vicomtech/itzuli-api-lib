@@ -13,27 +13,36 @@ In this repository, you can find example ready-to-use libraries. For more inform
 
 ### Example
 Import module:
+```
     import("github.com/Vicomtech/itzuli-api-lib/go/itzuli")
+```
 
 Initialize object:
+```
     itzuli := itzuli.Itzuli{}
     itzuli.Init("api key")
+```
 
 Send a translation:
+```
     if response, err := itzuli.Translate("kaixo! zer moduz?", "eu", "es"); err != nil {
 	    fmt.Println(response.TranslatedText)
 	}
+```
 
 Get used quota:
+```
     if responseQuota, err := itzuli.GetQuota(); err != nil {
 	    fmt.Println(responseQuota.ConsumedQuota)
 	}
+```
 
 Feedback:
+```
     if responseFeedback, err := itzuli.Feedback(translationResponse.FeedbackId, "hau horrela da", 1); err != nil {
 	    fmt.Println(responseFeedback.Message)
 	}
-
+```
 
 ## Python 3
 ### Functions in "Itzuli" package
